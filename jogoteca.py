@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 
+
 app = Flask(__name__)
 app.secret_key = 'alura'
-
 
 class Jogo:
     def __init__(self, nome, categoria, console):
@@ -73,5 +73,8 @@ def logout():
     flash('Nenhum usuário logado!')
     return redirect(url_for('index'))
 
+@app.route('/download')
+def download():
+    return render_template('download.html')
 
 app.run(host='0.0.0.0', port='8000', debug=True)
