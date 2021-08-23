@@ -40,11 +40,22 @@ form {
   display: inline-block;
 }
 
-form label {
+form label, form  legend{
   display: block;
-  padding: 10px;
+  margin: 0 0 10px;
 }
 
-form input {
+.input-padrao {
   display: block;
+  margin: 0 0 20px;
+  padding: 5px 10px;
+  width: 250px;
+}
+textarea {
+  margin-bottom: 30px;
+  padding: 10px;
+}
+form select {
+  display: block;
+  margin: 0 0 20px
 }

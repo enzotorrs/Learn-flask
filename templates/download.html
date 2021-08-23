@@ -18,11 +18,23 @@
         </header>
         <main>
             <form>
-                <label for="nome">Nome do filme:</label>
-                <input type="text" id="nome">
-                <label for="usuario">Quem ta pedindo:</label>
-                <input type="text" id="usuario">
-                <input type="submit">
+                <fieldset>
+                    <label for="nome">Nome do filme:</label>
+                    <input class="input-padrao" type="text" id="nome" placeholder="Interestelar">
+                    <label for="usuario">Quem ta pedindo:</label>
+                    <input class="input-padrao" type="text" id="usuario" placeholder="Marília">
+                    <label for="obs">Observação</label>
+                    <textarea cols="70" rows="10" id="obs"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Selecione a resolução desejada</legend>
+                    <select>
+                    <option>720p</option>
+                    <option>1080p</option>
+                    <option>4k</option>
+                    </select>
+                    <input type="submit">
+                </fieldset>
             </form>
         </main>
     </body>
