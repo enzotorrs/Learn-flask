@@ -1,0 +1,50 @@
+header {
+  border-bottom: 1px solid #eee;
+  width: 940px;
+  margin: 20px auto;
+  padding: 2px 5px;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 30px;
+  text-align: left;
+}
+
+.navegacao {
+  position: relative;
+  text-align: right;
+  left: 70%;
+  display: inline-block;
+}
+
+.navegacao a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.navegacao li {
+  text-align: bottom;
+  margin-left: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+main {
+  width: 940px;
+  margin: 20px auto;
+}
+
+form {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+form label {
+  display: block;
+  padding: 10px;
+}
+
+form input {
+  display: block;
+}
