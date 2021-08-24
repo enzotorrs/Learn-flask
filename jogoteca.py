@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
-#fazer rota para gravar downloads
+import psycopg2
+
 
 app = Flask(__name__)
 app.secret_key = 'alura'
+
+conect = psycopg2.connect(host='192.168.0.136', database='Site',
+                                        user='enzotorr',
+                                        password='cueca135galinha')
+cursor = conect.cursor()
+
 
 class Jogo:
     def __init__(self, nome, categoria, console):
@@ -81,9 +88,9 @@ def download():
 def gravar():
     nome_do_filme = request.form['nome_do_filme']
     usuario = request.form['usuario']
-    with open('filmes.txt', 'w') as arq:
-        arq.write(nome_do_filme)
-        arq.write(usuario)
+    sql = f"INSERT INTO DOWNLOADS VALUES ('{nome_do_filme}', '{usuario}')"
+    cursor.execute(sql)
+    conect.commit()
     return redirect(url_for('index'))
 
 
