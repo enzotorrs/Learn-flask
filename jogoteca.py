@@ -77,4 +77,14 @@ def logout():
 def download():
     return render_template('download.html')
 
+@app.route('/gravar', methods=['POST', ])
+def gravar():
+    nome_do_filme = request.form['nome_do_filme']
+    usuario = request.form['usuario']
+    with open('filmes.txt', 'w') as arq:
+        arq.write(nome_do_filme)
+        arq.write(usuario)
+    return redirect(url_for('index'))
+
+
 app.run(host='0.0.0.0', port='8000', debug=True)

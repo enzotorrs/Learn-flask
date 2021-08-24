@@ -17,12 +17,12 @@
             </nav>
         </header>
         <main>
-            <form>
+            <form method='POST' action="{{ url_for('gravar') }}">
                 <fieldset>
                     <label for="nome">Nome do filme:</label>
-                    <input class="input-padrao" type="text" id="nome" placeholder="Interestelar">
+                    <input class="input-padrao" name="nome_do_filme" type="text" id="nome" placeholder="Interestelar">
                     <label for="usuario">Quem ta pedindo:</label>
-                    <input class="input-padrao" type="text" id="usuario" placeholder="Marília">
+                    <input class="input-padrao" name="usuario" type="text" id="usuario" placeholder="Marília">
                     <label for="obs">Observação</label>
                     <textarea cols="70" rows="10" id="obs"></textarea>
                 </fieldset>
