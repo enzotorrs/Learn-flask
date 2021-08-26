@@ -9,14 +9,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for jogo in jogos %}
-                        <tr>
-                            <td>{{ jogo.nome }}</td>
-                            <td>{{ jogo.categoria }}</td>
-                            <td>{{ jogo.console }}</td>
-                        </tr>
+        {% for i in lista %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[3] }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
-    <img src={{ url_for('static', filename='banner.jpg') }}
 {% endblock %}

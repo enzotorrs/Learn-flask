@@ -13,6 +13,7 @@
                 <ul>
                     <li><a href='novo'>novo</a></li>
                     <li><a href='logout'>logout</a></li>
+                    <li><a href='http://192.168.0.136:8096/web/index.html#!/home'><img src="{{ url_for('static', filename="emby.png") }}"></a></li>
                 </ul>
             </nav>
         </header>
@@ -24,16 +25,16 @@
                     <label for="usuario">Quem ta pedindo:</label>
                     <input class="input-padrao" name="usuario" type="text" id="usuario" placeholder="Marília">
                     <label for="obs">Observação</label>
-                    <textarea cols="70" rows="10" id="obs"></textarea>
+                    <textarea name="obs" cols="70" rows="10" id="obs"></textarea>
                 </fieldset>
                 <fieldset>
                     <legend>Selecione a resolução desejada</legend>
-                    <select>
+                    <select name="resolucao">
                     <option>720p</option>
                     <option>1080p</option>
                     <option>4k</option>
                     </select>
-                    <input type="submit">
+                    <input class="submit-button" type="submit">
                 </fieldset>
             </form>
         </main>

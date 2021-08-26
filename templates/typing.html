@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Typing</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+    </head>
+    <body>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background: rgba(25,25,25);
+            } 
+            .oi {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 3em;
+                border-right: 2px solid rgba(255, 255, 255, 0.75); 
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .typing-animation{
+                animation: typing steps(40) 3s 1s infinite normal both, 
+                    blink-cursor 300ms steps(40) infinite normal;
+            }
+
+            @keyframes typing {
+                from{width: 0;}
+                to{width: 8.5em;}
+            }
+            @keyframes blink-cursor {
+                from{border-right-color: rgba(255, 255, 255, 0.75);}
+                to{border-right-color: transparent;}
+            }
+        </style> 
+        <p class="oi typing-animation">Oi eu sou o Enziolio</p>
+    </body>
+</html>

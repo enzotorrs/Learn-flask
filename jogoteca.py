@@ -11,11 +11,11 @@ conect = psycopg2.connect(host='192.168.0.136', database='Site',
 cursor = conect.cursor()
 
 
-class Jogo:
-    def __init__(self, nome, categoria, console):
-        self.nome = nome
-        self.categoria = categoria
-        self.console = console
+class Download:
+    def __init__(self, nome_do_filme, usuario, resolucao):
+        self.nome_do_filme = nome_do_filme
+        self.usuario = usuario
+        self.resolucao = resolucao
 
 class Usuario:
     def __init__(self, id, nome, senha):
@@ -28,14 +28,14 @@ usuario2 = Usuario('maliulia', 'Marilia Anita', '3636')
 
 usuarios = {usuario1.id: usuario1, usuario2.id: usuario2}
 
-jogo1 = Jogo('Super Mario', 'Ação', 'SNES')
-jogo2 = Jogo('Pokemon Gold', 'RPG', 'GBA')
-lista = [jogo1, jogo2]
 
 
 @app.route('/')
 def index():
-    return render_template('lista.html', titulo='Jogos', jogos=lista)
+    sql = "SELECT * from downloads"
+    cursor.execute(sql)
+    lista = cursor.fetchall()
+    return render_template('lista.html', titulo='Filmes para Download', lista=lista)
 
 
 @app.route('/novo')
@@ -88,10 +88,15 @@ def download():
 def gravar():
     nome_do_filme = request.form['nome_do_filme']
     usuario = request.form['usuario']
-    sql = f"INSERT INTO DOWNLOADS VALUES ('{nome_do_filme}', '{usuario}')"
+    obervacao = request.form['obs']
+    resolucao = request.form['resolucao']
+    sql = f"INSERT INTO DOWNLOADS VALUES ('{nome_do_filme}', '{usuario}', '{obervacao}', '{resolucao}')"
     cursor.execute(sql)
     conect.commit()
     return redirect(url_for('index'))
 
+@app.route('/typing')
+def typing():
+    return render_template('typing.html')
 
 app.run(host='0.0.0.0', port='8000', debug=True)
