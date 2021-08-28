@@ -1,3 +1,6 @@
+* {
+  color: rgba(255,255,255, 1);
+}
 header {
   border-bottom: 1px solid #eee;
   width: 940px;
@@ -18,9 +21,13 @@ header h1 {
   display: inline-block;
 }
 
-.navegacao a {
+.navegacao a, a {
   text-decoration: none;
-  color: #333333;
+  transition: 1s all;
+}
+
+.navegacao a:hover {
+  color: rgba(200, 200, 200, 0.75)
 }
 
 .navegacao li, a img {
@@ -39,10 +46,10 @@ nav:last-child {
 }
 
 body {
-  background: linear-gradient(45deg, #2B2E4A, #E84545, #903749, #53354A);
+  background: linear-gradient(45deg, #261C2C, #3E2C41, #5C527F, #6E85B2);
   background-size: 300%;
   height: 100vh;
-  width: 100vw;
+  width: 98vw;
   animation: dynamic-gradient 15s ease infinite;
 }
 @keyframes dynamic-gradient {
@@ -70,24 +77,37 @@ form {
 
 form label, form  legend{
   display: block;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 
 .input-padrao {
+  color: rgba(0, 0, 0, 0.75);
   display: block;
   margin: 0 0 20px;
   padding: 5px 10px;
   width: 250px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 textarea {
   margin-bottom: 30px;
   padding: 10px;
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 form select {
+  color: rgba(0, 0, 0, 0.85);
   display: block;
-  margin: 0 0 20px
+  margin: 0 0 20px;
+  border-radius: 5px;
 }
 
+form option{
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 5px;
+}
 .submit-button {
   width: 30%;
   padding: 10px;
@@ -103,6 +123,4 @@ form select {
 .submit-button:hover {
   background-color: darkorange;
   transform: scale(1.2);
-  
-
 }

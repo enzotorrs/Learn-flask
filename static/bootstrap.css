@@ -33,8 +33,6 @@ nav a {
   text-transform: uppercase;
   text-decoration: none;
   color: #333333;
-  animation-name: nav;
-  animation-duration: 3s;
 }
 nav a:hover {
   text-decoration: none;
@@ -53,15 +51,11 @@ nav a:hover {
   text-transform: uppercase;
 
   position: relative;
-  animation-name: titulo;
-  animation-duration: 3s;
 }
 img {
   width: 100%;
   height: 175px;
   position: relative;
-  animation-name: imagem;
-  animation-duration: 1.5s;
 }
 html {
   font-family: sans-serif;

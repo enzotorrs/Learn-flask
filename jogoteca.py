@@ -35,29 +35,13 @@ def index():
     sql = "SELECT * from downloads"
     cursor.execute(sql)
     lista = cursor.fetchall()
-    return render_template('lista.html', titulo='Filmes para Download', lista=lista)
-
-
-@app.route('/novo')
-def novo():
-    if 'usuario_logado' not in session or session['usuario_logado'] == None:
-        return redirect(url_for('login', proximo=url_for('novo')))
-    return render_template('novo.html', titulo='Novo Jogo')
-
-
-@app.route('/criar', methods=['POST',])
-def criar():
-    nome = request. form['nome']
-    categoria = request. form['categoria']
-    console = request. form['console']
-    jogo = Jogo(nome, categoria, console)
-    lista.append(jogo)
-    return redirect(url_for('index'))
+    return render_template('lista.html', titulo='Lista de filmes', lista=lista)
 
 
 @app.route('/login')
 def login():
     proximo = request.args.get('proximo')
+
     return render_template('login.html', proximo=proximo)
 
 
