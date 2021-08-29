@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Queue to download</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style-download.css') }}">
+    </head>
+    <body>
+        <header class="page-header">
+            <h1><a href="{{ url_for('index') }}">Downloads</a></h1>
+            <nav class="navegacao">
+                <ul>
+                    <li><a href='novo'>novo</a></li>
+                    <li><a href='logout'>logout</a></li>
+                    <li><a href='http://192.168.0.136:8096/web/index.html#!/home' target="_blank"><img src="{{ url_for('static', filename="emby.png") }}"></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form method='POST' action="{{ url_for('muda') }}">
+                <fieldset>
+                    <input type="hidden" name="nome" value="{{ lista[0] }}"
+                    <label for="nome">Nome do filme:</label>
+                    <input class="input-padrao" name="nome_do_filme" type="text" id="nome" value="{{ lista[0] }}">
+                    <label for="usuario">Quem ta pedindo:</label>
+                    <input class="input-padrao" name="usuario" type="text" id="usuario" value="{{ lista[1] }}">
+                    <label for="obs">Observação</label>
+                    <textarea name="obs" cols="70" rows="10" id="obs"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Selecione a resolução desejada</legend>
+                    <select name="resolucao">
+                    <option>720p</option>
+                    <option>1080p</option>
+                    <option>4k</option>
+                    </select>
+                    <input class="submit-button" type="submit">
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>
