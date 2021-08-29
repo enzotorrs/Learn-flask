@@ -79,8 +79,45 @@ def gravar():
     conect.commit()
     return redirect(url_for('index'))
 
+@app.route("/editar")
+def editar():
+    sql = "SELECT * from downloads"
+    cursor.execute(sql)
+    lista = cursor.fetchall()
+    return render_template("editar.html", titulo='Editar filmes', lista=lista)
+
+@app.route("/atualizar/<string:nome>")
+def atualizar(nome):
+    sql = f"SELECT * FROM downloads where nome_do_filme = '{nome}' "
+    cursor.execute(sql)
+    lista = cursor.fetchall()[0]
+    print(lista[0])
+    return render_template("atualizar.html", lista=lista)
+
+@app.route('/muda', methods=['POST', ])
+def muda():
+    sql = f"""UPDATE DOWNLOADS
+    SET nome_do_filme = '{request.form['nome_do_filme']}',
+    usuario ='{request.form['usuario']}',
+    resolucao = '{request.form['resolucao']}'
+    where nome_do_filme = '{request.form['nome']}'
+"""
+    cursor.execute(sql)
+    conect.commit()
+    return redirect(url_for('index'))
+
+@app.route('/deletar/<string:nome>')
+def deletar(nome):
+    sql = f"""Delete from downloads
+    where nome_do_filme = '{nome}'
+"""
+    cursor.execute(sql)
+    conect.commit()
+    return redirect(url_for('index'))
+
 @app.route('/typing')
 def typing():
     return render_template('typing.html')
+
 
 app.run(host='0.0.0.0', port='8000', debug=True)
